@@ -1,0 +1,18 @@
+Ejecicio
+Crear un modulo libreria.py
+Clase Libro, 
+    fecha publicacion
+    ISBN
+    editoriaL
+    titulo
+    authores
+    cantidad de paginas
+    precio
+Clase Author
+    Nombre
+    Apellido
+    DNI
+    Nacionalidad
+    Libros
+Se define el metodo "aniadir libro" a la clase author que toma 
+como argumento un libro y lo agrega a la variable libros de ese Author.
