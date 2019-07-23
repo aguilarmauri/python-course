@@ -1,4 +1,4 @@
-# REQUEST 1
+# REQUIREMENT 1
 django-admin --version          
 2.2.3
 django-admin startproject kiosko
@@ -10,7 +10,7 @@ mauri, mauri
 python3 manage.py runserver
 http://127.0.0.1:8000/admin
 
-# REQUEST 2
+# REQUIREMENT 2
 # Create model
 archivo <project>/<app>/models.py
 '''
@@ -26,9 +26,9 @@ class Producto(models.Model):
         return "Producto "+nombre+": $"+str(precio)+". "+descripcion
 '''
 # Activate model
-copio nombre de la app en archivo <project>/setting.py
+copy the name of app in INSTALLED APPS variable,
 'app',
-en la variable INSTALLED_APPS
+<project>/setting.py
 # Add to admin web in admin.py
 '''
 from .models import Producto
@@ -40,3 +40,6 @@ python3 manage.py migrate
 # Run the server
 python3 manage.py runserver
 http://127.0.0.1:8000/admin
+
+# REQUIREMENT 3
+
