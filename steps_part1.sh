@@ -17,8 +17,10 @@ python3 manage.py createsuperuser
 python3 manage.py runserver
 http://127.0.0.1:8000/admin
 
+
+
 # REQUIREMENT 2
-# Create model
+# Create model Producto
 file <project>/<app>/models.py
 '''
 from django.db import models
@@ -32,7 +34,7 @@ class Producto(models.Model):
     def __str__(self):
         return "Producto "+self.nombre+": $"+str(self.precio)+". "+self.descripcion
 '''
-# Activate model
+# Activate app
 file <project>/<project>/setting.py
 copy the name of app in INSTALLED APPS variable,
 INSTALLED_APPS = [
@@ -51,6 +53,8 @@ python3 manage.py migrate
 # Run the server
 python3 manage.py runserver
 http://127.0.0.1:8000/admin
+
+
 
 # REQUIREMENT 3
 # Install modules
