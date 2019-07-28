@@ -7,13 +7,30 @@ class Producto(models.Model):
     precio = models.PositiveIntegerField(default=0)         #  must be positive
 
     def __str__(self):
-        return "Producto "+self.nombre+": $"+str(self.precio)+". "+self.descripcion
+        return "PRODUCTO "+self.nombre+": $"+str(self.precio)+". "+self.descripcion
 
 class Proveedor(models.Model):
     nombre = models.CharField(max_length=20)
-    cuit = models.IntegerField(max_length=11, unique=True)
+    cuit = models.IntegerField(unique=True)
     direccion = models.CharField(max_length=50)
-    telefono = models.IntegerField(max_length=17)
+    telefono = models.IntegerField()
 
     def __str__(self):
-        return "Proveedor "+self.nombre+" cuit "+str(self.cuit)+" direccion "+self.direccion+" tel "+str(self.telefono)
+        return "PROVEEDOR "+self.nombre+" CUIT "+str(self.cuit)+" DIRECCION "+self.direccion+" TELEFONO "+str(self.telefono)
+
+class IngresoMercaderia(models.Model):
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    fecha = models.DateField()
+    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "INGRESO de "+str(self.cantidad)+" PRODUCTOS "+self.producto.nombre+" en FECHA "+str(self.fecha)+" del PROVEEDOR "+self.proveedor.nombre
+
+class EgresoMercaderia(models.Model):
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    fecha = models.DateField()
+
+    def __str__(self):
+        return "EGRESO de "+str(self.cantidad)+" PRODUCTOS "+self.producto.nombre+" en FECHA "+str(self.fecha)
