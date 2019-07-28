@@ -6,5 +6,5 @@ class Producto(models.Model):
     descripcion = models.CharField(max_length=200)  
     precio = models.IntegerField(default=0)         #  must be positive
 
-    def __str__():
-        return "Producto "+nombre+": $"+str(precio)+". "+descripcion
+    def __str__(self):
+        return "Producto "+self.nombre+": $"+str(self.precio)+". "+self.descripcion
