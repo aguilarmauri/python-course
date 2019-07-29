@@ -14,8 +14,8 @@ class Proveedor(models.Model):
 # Register Models: Add to admin web
 file <project>/<app>/admin.py
 '''
-from .models import Producto
-admin.site.register(Producto)
+from .models import Proveedor
+admin.site.register(Proveedor)
 '''
 # Update schema of db
 python3 manage.py makemigrations app
