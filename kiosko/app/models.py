@@ -7,6 +7,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=20)        
     descripcion = models.CharField(max_length=200)  
     precio =  models.DecimalField(max_digits=12, decimal_places=2, validators=[MinValueValidator(Decimal("0"))])
+    # stock = models.
 
     def __str__(self):
         return "PRODUCTO "+self.nombre+": $"+str(self.precio)+". "+self.descripcion

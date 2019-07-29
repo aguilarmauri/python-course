@@ -78,3 +78,29 @@ python3 manage.py migrate
 # Run the server
 python3 manage.py runserver
 http://127.0.0.1:8000/admin
+
+# REQUIREMENT 4
+# Modify view to calc stock
+file file <project>/<app>/views.py
+'''
+from django.db.models import Sum
+from django.db.models.functions import Coalesce
+from django.db.models import F
+
+   queryset = Producto.objects.annotate(
+      ingreso=Coalesce(Sum("ingresomercaderia__cantidad"), 0),
+      egreso=Coalesce(Sum("egresomercaderia__cantidad"), 0),
+      stock=F("ingreso")-F("egreso")
+   )   
+'''
+# Update serializer to show stock field
+'''
+model.stock = serializers.IntegerField(read_only=True)
+fields = [
+    ...
+    'stock'
+]
+'''
+# Run the server
+python3 manage.py runserver
+http://127.0.0.1:8000/admin
