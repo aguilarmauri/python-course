@@ -104,3 +104,8 @@ fields = [
 # Run the server
 python3 manage.py runserver
 http://127.0.0.1:8000/admin
+
+# Profiling
+https://behave.readthedocs.io/en/latest/
+https://docs.python.org/2/library/profile.html
+https://django-debug-toolbar.readthedocs.io/en/latest/
